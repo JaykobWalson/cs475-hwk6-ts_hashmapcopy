@@ -11,11 +11,14 @@ int main(int argc, char *argv[]) {
 	}
 
   srand(time(NULL));
-	int num_threads = atoi(argv[1]);
 	int capacity = (unsigned int) atoi(argv[2]);
+	int length = (int) (rand() * 30.0/RAND_MAX) + 1;
+	ts_hashmap_t *testMap = initmap(capacity);
 
-	// TODO: Write your test
-
-	return 0;
+	for(int i = 0; i < length; i++){
+		int newSize = (int) (rand() * 30.0/RAND_MAX) + 1;
+		put(testMap, newSize, newSize);
+	}
+printmap(testMap);
+return 0;
 }
-
